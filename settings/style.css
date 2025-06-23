@@ -1,0 +1,343 @@
+/* settings/style.css - Общие стили для всех страниц */
+
+/* Базовый сброс и настройки */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #fff5f5;
+    background-image: linear-gradient(to bottom right, #fff5f5, #ffebf0);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Общие контейнеры */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Цветовая схема */
+:root {
+    --primary-color: #ff6b88;
+    --primary-light: #ff8fa3;
+    --secondary-color: #ffd6de;
+    --text-color: #333;
+    --text-light: #888;
+    --white: #ffffff;
+    --bg-gradient: linear-gradient(to right, #ff6b88, #ff8fa3);
+}
+
+/* Кнопки (общие стили) */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: var(--bg-gradient);
+    color: var(--white);
+    box-shadow: 0 4px 10px rgba(255, 107, 136, 0.3);
+}
+
+.btn-secondary {
+    background: var(--white);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(255, 107, 136, 0.4);
+}
+
+/* Формы (общие стили) */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 50px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #fff9fa;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(255, 107, 136, 0.2);
+}
+
+/* Шапка (для главной страницы) */
+.header {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 15px 0;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(255, 107, 136, 0.3);
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.site-title {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 700;
+    margin: 0;
+}
+
+.site-subtitle {
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    margin: 5px 0 15px;
+}
+
+/* Навигация */
+.nav {
+    width: 100%;
+    overflow-x: auto;
+    padding: 10px 0;
+    -webkit-overflow-scrolling: touch;
+}
+
+.nav-list {
+    display: flex;
+    flex-wrap: nowrap;
+    list-style: none;
+    gap: 10px;
+    padding: 0 10px;
+    min-width: fit-content;
+}
+
+.nav-item {
+    flex-shrink: 0;
+}
+
+.nav-link {
+    display: block;
+    padding: 8px 15px;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* Страницы авторизации/регистрации */
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.auth-container {
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(255, 107, 136, 0.15);
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: var(--bg-gradient);
+}
+
+.auth-title {
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.auth-links {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.auth-link {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin: 5px 0;
+}
+
+.auth-link:hover {
+    text-decoration: underline;
+    color: var(--primary-light);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .auth-container {
+        padding: 30px 25px;
+    }
+    
+    .nav-list {
+        gap: 8px;
+        padding: 0 5px;
+    }
+    
+    .nav-link {
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn {
+        padding: 14px 20px;
+    }
+    
+    .form-control {
+        padding: 14px 20px;
+    }
+    
+    .auth-title {
+        font-size: 1.5rem;
+        margin-bottom: 25px;
+    }
+}
+
+/* Общие стили */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f9f5f0;
+}
+
+header {
+    background-color: #ff6b81;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-bottom: 30px;
+}
+
+h1, h2, h3 {
+    color: #d23369;
+}
+
+h1 {
+    margin: 0;
+}
+
+h2 {
+    border-bottom: 2px solid #ffb8c6;
+    padding-bottom: 5px;
+}
+
+.delivery-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.delivery-section, .pickup-section, .payment-section, .contacts-section {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+ul {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+a {
+    color: #d23369;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #ff6b81;
+    color: white;
+    margin-top: 30px;
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+    .delivery-container {
+        padding: 0 10px;
+    }
+
+    header {
+        padding: 15px 0;
+    }
+}
